@@ -8,52 +8,49 @@
     <button @click="alertMyEmail()">Wyświetl mój e-mail w alercie</button> -->
 
     <h1>{{ welcome}}</h1>
-    <div v-if="!state">
-      <label>Zaloguj się mailem</label>
-      <input type="email" v-model="email">
-      <button @click="login()"> Wchodzę</button>
+    <div v-if="!authenticatedUsername">
+      <login-form @login="logMeIn($event)"></login-form>
     </div>
      <div v-else>
-       <label>zalogowany jako {{email}}</label>
+       <label>zalogowany jako {{authenticatedUsername}}</label>
         <button @click="logout()">Wyloguj </button>
-
      </div>
-
+    
     
   </div>
 </template>
 
 <script>
 import "milligram";
+import LoginForm from "./LoginForm";
 export default {
-  name: 'app',
-  data () {
+  name: "app",
+  components: { LoginForm },
+  data() {
     return {
-      email: 'piotrek@poczta.pl',
-      welcome: 'Witaj w systemie do zapisów na zajęcia',
-      state: false,
-    }
+      email: "piotrek@poczta.pl",
+      welcome: "Witaj w systemie do zapisów na zajęcia",
+      authenticatedUsername: '',
+      state: false
+    };
   },
   methods: {
-  alertMyEmail() {
-    alert(this.email);
-  },
-  login(){
-    
-      this.state = true
-  },
-  logout(){
-
-    this.state = false
+    alertMyEmail() {
+      alert(this.email);
+    },
+    logMeIn(username) {
+      this.authenticatedUsername = username;
+    },
+    logout(){
+      this.authenticatedUsername = '';
+    }
   }
-}
-
-}
+};
 </script>
 
 <style lang="scss">
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -61,7 +58,8 @@ export default {
   margin-top: 60px;
 }
 
-h1, h2 {
+h1,
+h2 {
   font-weight: normal;
 }
 
