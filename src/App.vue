@@ -1,21 +1,25 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-    </ul>
+    <h1>Twój e-mail to: {{ email}}</h1>
+    <div v-if="email.length < 10">Ale masz krótki adres!</div>
+    <div v-else-if="email.length < 15">Twój adres e-mail jest w sam raz.</div>
+    <div v-else>Twój adres e-mail jest stanowczo za długi.</div>
+    <input type="email" v-model="email">
+    <button @click="alertMyEmail()">Wyświetl mój e-mail w alercie</button>
+
+    <h1>{{ welcome}}</h1>
+    <div v-if="!state">
+      <label>Zaloguj się mailem</label>
+      <input type="email" v-model="email">
+      <button @click="login()"> Wchodzę</button>
+    </div>
+     <div v-else>
+       <label>zalogowany jako {{email}}</label>
+        <button @click="logout()">Wyloguj </button>
+
+     </div>
+
+    
   </div>
 </template>
 
@@ -24,9 +28,25 @@ export default {
   name: 'app',
   data () {
     return {
-      msg: 'Hello World!!!'
+      email: 'piotrek@poczta.pl',
+      welcome: 'Witaj w systemie do zapisów na zajęcia',
+      state: false,
     }
+  },
+  methods: {
+  alertMyEmail() {
+    alert(this.email);
+  },
+  login(){
+    
+      this.state = true
+  },
+  logout(){
+
+    this.state = false
   }
+}
+
 }
 </script>
 
