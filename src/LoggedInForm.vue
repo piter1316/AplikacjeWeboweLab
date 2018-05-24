@@ -1,7 +1,7 @@
 
 <template>
    <div>
-     <label>zalogowany jako {{ nameToDisplay }}</label>
+     <label>Witaj  {{ nameToDisplay }}!</label>
      <button @click="exit()">Wyloguj </button>
    </div>
 </template>

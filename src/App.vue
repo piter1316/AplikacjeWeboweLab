@@ -9,14 +9,25 @@
 
     <h1>{{ welcome}}</h1>
     <div v-if="!authenticatedUsername">
-      <login-form @login="logMeIn($event)" :button-label="'Wejdź'"></login-form>
-      <login-form @login="logMeIn($event)" :button-label="'WLEĆ'"></login-form>
       <login-form @login="logMeIn($event)" :button-label="'Zaloguj się jako człowiek'"></login-form>
-      <login-form @login="logMeIn($event)" ></login-form>
+      <!-- <login-form @login="logMeIn($event)" :button-label="'Wejdź'"></login-form>
+      <login-form @login="logMeIn($event)" :button-label="'WLEĆ'"></login-form>
+      <login-form @login="logMeIn($event)" ></login-form> -->
 
     </div>
      <div v-else>
         <logged-in-form @logout="logout($event)" :authenticatedUsername = this.authenticatedUsername></logged-in-form>
+          <form>
+            <fieldset>
+
+              <meeting-page></meeting-page>
+            </fieldset>
+            
+
+          </form>
+          
+        
+        
      </div>
     
     
@@ -27,9 +38,10 @@
 import "milligram";
 import LoginForm from "./LoginForm";
 import LoggedInForm from "./LoggedInForm";
+import MeetingPage from "./meetings/MeetingPage";
 export default {
   name: "app",
-  components: { LoginForm, LoggedInForm },
+  components: { LoginForm, LoggedInForm, MeetingPage },
   data() {
     return {
       email: "piotrek@poczta.pl",
