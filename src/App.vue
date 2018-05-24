@@ -12,10 +12,11 @@
       <login-form @login="logMeIn($event)" :button-label="'Wejdź'"></login-form>
       <login-form @login="logMeIn($event)" :button-label="'WLEĆ'"></login-form>
       <login-form @login="logMeIn($event)" :button-label="'Zaloguj się jako człowiek'"></login-form>
+      <login-form @login="logMeIn($event)" ></login-form>
+
     </div>
      <div v-else>
-       <label>zalogowany jako {{authenticatedUsername}}</label>
-        <button @click="logout()">Wyloguj </button>
+        <logged-in-form @logout="logout($event)" :authenticatedUsername = this.authenticatedUsername></logged-in-form>
      </div>
     
     
@@ -25,9 +26,10 @@
 <script>
 import "milligram";
 import LoginForm from "./LoginForm";
+import LoggedInForm from "./LoggedInForm";
 export default {
   name: "app",
-  components: { LoginForm },
+  components: { LoginForm, LoggedInForm },
   data() {
     return {
       email: "piotrek@poczta.pl",
@@ -45,9 +47,23 @@ export default {
     },
     logout() {
       this.authenticatedUsername = "";
+    },
+    getUserName(){
+      return authenticatedUsername;
     }
   }
 };
+
+
+
+
+
+
+
+
+
+
+
 </script>
 
 <style lang="scss">
