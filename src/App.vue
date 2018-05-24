@@ -9,7 +9,9 @@
 
     <h1>{{ welcome}}</h1>
     <div v-if="!authenticatedUsername">
-      <login-form @login="logMeIn($event)"></login-form>
+      <login-form @login="logMeIn($event)" :button-label="'Wejdź'"></login-form>
+      <login-form @login="logMeIn($event)" :button-label="'WLEĆ'"></login-form>
+      <login-form @login="logMeIn($event)" :button-label="'Zaloguj się jako człowiek'"></login-form>
     </div>
      <div v-else>
        <label>zalogowany jako {{authenticatedUsername}}</label>
@@ -30,7 +32,7 @@ export default {
     return {
       email: "piotrek@poczta.pl",
       welcome: "Witaj w systemie do zapisów na zajęcia",
-      authenticatedUsername: '',
+      authenticatedUsername: "",
       state: false
     };
   },
@@ -41,8 +43,8 @@ export default {
     logMeIn(username) {
       this.authenticatedUsername = username;
     },
-    logout(){
-      this.authenticatedUsername = '';
+    logout() {
+      this.authenticatedUsername = "";
     }
   }
 };
