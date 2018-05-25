@@ -1,8 +1,10 @@
 <template>
    <div>
-       <label>Zaloguj się e-mailem</label>
+       <label id="text">Zaloguj się e-mailem</label>
        <input type="email" v-model="email">
-       <button @click="enter()"> {{ buttonLabelToDisplay }} </button>
+       <span id="zaloguj">
+         <button  @click="enter()"> {{ buttonLabelToDisplay }} </button>
+        </span>
    </div>
 </template>
 
@@ -17,6 +19,7 @@ export default {
   data() {
     return {
       email: ""
+      
     };
   },
   methods: {
@@ -26,3 +29,17 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+#text{
+
+  text-align: left;
+
+}
+#zaloguj{
+  float:left;
+  
+}
+
+
+</style>

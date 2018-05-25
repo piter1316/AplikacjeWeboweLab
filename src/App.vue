@@ -45,7 +45,7 @@ export default {
   data() {
     return {
       email: "piotrek@poczta.pl",
-      welcome: "Witaj w systemie do zapisów na zajęcia",
+      welcome: "System do zapisów na zajęcia",
       authenticatedUsername: "",
       state: false
     };
@@ -60,22 +60,11 @@ export default {
     logout() {
       this.authenticatedUsername = "";
     },
-    getUserName(){
+    getUserName() {
       return authenticatedUsername;
     }
   }
 };
-
-
-
-
-
-
-
-
-
-
-
 </script>
 
 <style lang="scss">
@@ -86,11 +75,13 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  width: auto;
 }
 
 h1,
 h2 {
   font-weight: normal;
+  text-align: left;
 }
 
 ul {
