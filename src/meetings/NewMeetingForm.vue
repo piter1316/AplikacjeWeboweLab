@@ -11,14 +11,18 @@
             <label id="emptyNameLabel">Spotkanie musi posiadać nazwę!</label>
             </div>
             <div style="clear:both;"></div>
-            <h3>Zajęcia ({{counter}}) </h3>
+            <div v-if="this.counter==0">
+                <h3>Brak zaplanowanych spotkań</h3>
+            </div>
+            <div v-else>
+            <h3>Zaplanowane Zajęcia ({{counter}}) </h3>
+            </div>
             
     </form>
 </template>
 
 <script>
 export default {
-    
   data() {
     return {
       newMeeting: {},
@@ -30,8 +34,7 @@ export default {
     addNewMeeting() {
       if (!this.newMeeting.name) {
         this.isNazwaEmpty = true;
-      }
-      else {
+      } else {
         this.$emit("added", this.newMeeting);
         this.newMeeting = {};
         this.isNazwaEmpty = false;
@@ -43,18 +46,17 @@ export default {
 </script>
 
 <style>
-#emptyNameLabel{
-    color:red;
-    float:left;
-    margin-left: 20px;
+#emptyNameLabel {
+  color: red;
+  float: left;
+  margin-left: 20px;
 }
 
-label{
-    text-align: left;
-    
+label {
+  text-align: left;
 }
 
-button{
-    float: left;
+button {
+  float: left;
 }
 </style>
