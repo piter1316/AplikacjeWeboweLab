@@ -1,6 +1,6 @@
 <template>
 <div>
-    <h3>Zajęcia </h3>
+    
     <table v-if="meetings.length > 0">
         <thead>
             <tr>
@@ -16,7 +16,7 @@
                 <td>{{ meeting.name }}</td>
                 <td>{{ meeting.description }}</td>
 
-                <td>{{ user }}</td>
+                <td></td>
 
                 <td><button  v-on:click.stop="addUser()"> ZAPISZ SIĘ</button></td>
                 <td><button> USUŃ PUSTE SPOTKANIE</button></td>
@@ -28,15 +28,20 @@
 
 <script>
 export default {
+  
   props: ["meetings"],
-  
-  
+
   data() {
-    return { user: "brak" };
+    return { 
+        counter: 0};
   },
   methods: {
     addUser() {
       this.user = email;
+    },
+    counter(){
+        return this.counter;
+
     }
   }
 };

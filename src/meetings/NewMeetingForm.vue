@@ -8,19 +8,22 @@
             <button onsubmit="return addNewMeeting()">Dodaj</button>
             
             <div v-if="isNazwaEmpty">
-            <label id="emptyNameLabel">SPOKTANIE MUSI MIEĆ NAZWĘ</label>
+            <label id="emptyNameLabel">SPOTKANIE MUSI MIEĆ NAZWĘ</label>
             </div>
             <div style="clear:both;"></div>
+            <h3>Zajęcia ({{counter}}) </h3>
+            
     </form>
 </template>
 
 <script>
 export default {
+    
   data() {
     return {
       newMeeting: {},
       isNazwaEmpty: false,
-      counter:0
+      counter: 0
     };
   },
   methods: {
