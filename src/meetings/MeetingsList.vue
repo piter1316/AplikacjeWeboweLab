@@ -30,19 +30,15 @@
 export default {
   
   props: ["meetings"],
-
-  data() {
-    return { 
-        counter: 0};
-  },
+//   props: ["authenticatedUsername"],
+    data(){
+        return this.authenticatedUsername = authenticatedUsername;
+    },
   methods: {
     addUser() {
       this.user = email;
     },
-    counter(){
-        return this.counter;
-
-    }
+    
   }
 };
 </script>

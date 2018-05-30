@@ -33,9 +33,10 @@ import "milligram";
 import LoginForm from "./LoginForm";
 import LoggedInForm from "./LoggedInForm";
 import MeetingPage from "./meetings/MeetingPage";
+import MeetingsList from "./meetings/MeetingsList";
 export default {
   name: "app",
-  components: { LoginForm, LoggedInForm, MeetingPage },
+  components: { LoginForm, LoggedInForm, MeetingPage, MeetingsList },
   data() {
     return {
       email: "piotrek@poczta.pl",

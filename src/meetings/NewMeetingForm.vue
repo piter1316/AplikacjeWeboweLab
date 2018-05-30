@@ -8,7 +8,7 @@
             <button onsubmit="return addNewMeeting()">Dodaj</button>
             
             <div v-if="isNazwaEmpty">
-            <label id="emptyNameLabel">SPOTKANIE MUSI MIEĆ NAZWĘ</label>
+            <label id="emptyNameLabel">Spotkanie musi posiadać nazwę!</label>
             </div>
             <div style="clear:both;"></div>
             <h3>Zajęcia ({{counter}}) </h3>
