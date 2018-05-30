@@ -19,15 +19,9 @@
         <logged-in-form @logout="logout($event)" :authenticatedUsername = this.authenticatedUsername></logged-in-form>
           <form>
             <fieldset>
-
               <meeting-page></meeting-page>
             </fieldset>
-            
-
           </form>
-          
-        
-        
      </div>
     
     
