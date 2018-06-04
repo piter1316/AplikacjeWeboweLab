@@ -1,7 +1,7 @@
 <template>
-<div>
+<div v-if="meetings.length > 0">
     
-    <table v-if="meetings.length > 0">
+    <table>
         <thead>
             <tr>
                 <th>Nazwa spotkania</th>
@@ -23,6 +23,7 @@
             </tr>
         </tbody>
     </table>
+    
 </div>
 </template>
 

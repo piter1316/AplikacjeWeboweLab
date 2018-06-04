@@ -5,8 +5,10 @@
        <form @submit.prevent="showAddForm()">
          <div v-if="add==true">
            <new-meeting-form @added="addNewMeeting($event)"></new-meeting-form>
-           <meetings-list :meetings="meetings"></meetings-list>
+           
          </div>
+         <meetings-list :meetings="meetings"></meetings-list>
+         
         <div v-if="meetings.length == 0 && add==false">
             <h3>Brak zaplanowanych spotkań</h3>
             <button @click = "showAddForm()">Dodaj nowe spotkanie</button>
@@ -34,6 +36,7 @@ export default {
   methods: {
     addNewMeeting(meeting) {
       this.meetings.push(meeting);
+      // this.add = false;
     },
     showAddForm() {
       this.add = true;

@@ -1,11 +1,14 @@
 <template>
+  
     <form @submit.prevent="addNewMeeting()">
+            <div v-if="show">
             <h3>Dodaj nowe spotkanie</h3>
             <label>Nazwa</label>
             <input type="text" v-model="newMeeting.name">
             <label>Opis</label>
             <textarea v-model="newMeeting.description"></textarea>
-            <button onsubmit="return addNewMeeting()">Dodaj</button>
+            <button >Dodaj</button>
+            </div>
             
             <div v-if="isNazwaEmpty">
             <label id="emptyNameLabel">Spotkanie musi posiadać nazwę!</label>
@@ -16,9 +19,13 @@
             </div>
             <div v-else>
             <h3>Zaplanowane Zajęcia ({{counter}}) </h3>
+            <div v-if="show==false">
+            <button @click="showForm()">Dodaj Nowe Zajęcia&&&</button>
             </div>
-            
+            </div>
+              
     </form>
+  
 </template>
 
 <script>
@@ -27,7 +34,8 @@ export default {
     return {
       newMeeting: {},
       isNazwaEmpty: false,
-      counter: 0
+      counter: 0,
+      show: true
     };
   },
   methods: {
@@ -39,7 +47,13 @@ export default {
         this.newMeeting = {};
         this.isNazwaEmpty = false;
         this.counter++;
+        this.show = false;
       }
+    },
+    showForm(){
+      this.show = true;
+      this.isNazwaEmpty = false;
+      
     }
   }
 };
