@@ -1,31 +1,33 @@
 <template>
-  
-    <form @submit.prevent="addNewMeeting()">
-            <div v-if="show">
-            <h3>Dodaj nowe spotkanie</h3>
-            <label>Nazwa</label>
-            <input type="text" v-model="newMeeting.name">
-            <label>Opis</label>
-            <textarea v-model="newMeeting.description"></textarea>
-            <button >Dodaj</button>
-            </div>
+<div>
+  <form @submit.prevent="addNewMeeting()">
+    <div v-if="show">
+      <h3>Dodaj nowe spotkanie</h3>
+      <label>Nazwa</label>
+      <input type="text" v-model="newMeeting.name">
+      <label>Opis</label>
+      <textarea v-model="newMeeting.description"></textarea>
+      <button >Dodaj</button>
+    </div>
             
-            <div v-if="isNazwaEmpty">
-            <label id="emptyNameLabel">Spotkanie musi posiadać nazwę!</label>
-            </div>
-            <div style="clear:both;"></div>
-            <div v-if="this.counter==0">
-                <h3>Brak zaplanowanych spotkań</h3>
-            </div>
-            <div v-else>
-            <h3>Zaplanowane Zajęcia ({{counter}}) </h3>
-            <div v-if="show==false">
-            <button @click="showForm()">Dodaj Nowe Zajęcia&&&</button>
-            </div>
-            </div>
-              
-    </form>
+    <div v-if="isNazwaEmpty">
+      <label id="emptyNameLabel">Spotkanie musi posiadać nazwę!</label>
+    </div>
+    
+    <div style="clear:both;"></div>
+    <div v-if="this.counter==0">
+      <h3>Brak zaplanowanych spotkań</h3>
+    </div>
+    <div v-else>
+      <h3>Zaplanowane Zajęcia ({{counter}}) </h3>
+    </div> 
+  </form>
   
+  <div v-if="show==false">
+    <button @click="showForm()">Dodaj Nowe Zajęcia</button>
+  </div> 
+
+</div>
 </template>
 
 <script>

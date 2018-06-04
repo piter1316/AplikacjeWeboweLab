@@ -16,7 +16,7 @@
                 <td>{{ meeting.name }}</td>
                 <td>{{ meeting.description }}</td>
 
-                <td></td>
+                <td>sdvf</td>
 
                 <td><button  v-on:click.stop="addUser()"> ZAPISZ SIĘ</button></td>
                 <td><button> USUŃ PUSTE SPOTKANIE</button></td>
@@ -31,7 +31,6 @@
 export default {
   
   props: ["meetings"],
-//   props: ["authenticatedUsername"],
     data(){
         return this.authenticatedUsername = authenticatedUsername;
     },
