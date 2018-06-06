@@ -15,4 +15,14 @@ export default {
   }
 };
 </script>
+<style>
+#app{
+  margin-top: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 1000px;
+  background: beige;
+  border-radius: 20px;
+}
+</style>
 
