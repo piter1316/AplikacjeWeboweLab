@@ -20,18 +20,22 @@ export default {
   },
   data() {
     return {
-      email: '',
+      email: "",
       isLoggedIn: false
     };
   },
   methods: {
     signIn(email) {
-      this.isLoggedIn = true;
-      this.email = email;
+      if (!email) {
+        this.isLoggedIn = false;
+      } else {
+        this.isLoggedIn = true;
+        this.email = email;
+      }
     },
     signOut() {
       this.isLoggedIn = false;
-      this.email = ''
+      this.email = "";
     }
   }
 };
